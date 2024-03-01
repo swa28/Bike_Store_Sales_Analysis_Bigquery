@@ -1,15 +1,19 @@
--- Over hear we have orders as a fact table with primary key 'order_id'
+-- We have been assigned to analyse the bike store sales using BigQuery.
+-- We have 9 relational tables having distinct primary keys and foreign keys. 
+-- Among the tables, 'orders' is a fact table where all other tables are dimensional and sub-dimensional. 
+-- First, we must create the data set in the BigQuery project and upload all the tables.
 
--- How many distict products does company has sold?
+-- Now lets first explore all the tables.
+
+-- How many distinct products does the company sell?
 
 SELECT COUNT(DISTINCT product_name)
 FROM bike-store-sql-project.1.products AS products;
 
-
 -- 
 
 
--- Which are the top 10 highest sold product?
+-- Which are the top 10 highest-sold products?
 
 WITH order_products AS (
 SELECT *
@@ -26,7 +30,7 @@ JOIN bike-store-sql-project.1.products AS p
  LIMIT 10;
 
 
- -- How many total products were sold by each brand? Which is leading brand amongst?
+ -- How many total products were sold by each brand? Which is the leading brand among?
 
 WITH brand_orders AS (
 SELECT *
@@ -43,7 +47,7 @@ JOIN bike-store-sql-project.1.brands as b
  GROUP BY 1
  ORDER BY 2 DESC;
 
- -- How many products were sold each store?
+ -- How many products were sold in each store?
  WITH store_sale AS (
 SELECT *
 FROM bike-store-sql-project.1.orders AS o
@@ -59,7 +63,7 @@ JOIN bike-store-sql-project.1.products AS p
  GROUP BY 1
  ORDER BY 2 DESC;
  
- -- Which month of year was highest sold month?
+ -- Which month of the year was the highest sold month?
 
  WITH order_products AS (
 SELECT *
