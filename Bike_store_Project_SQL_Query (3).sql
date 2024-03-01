@@ -1,20 +1,54 @@
--- We have been assigned to analyse the bike store sales using BigQuery.
--- We have 9 relational tables having distinct primary keys and foreign keys. 
--- Among the tables, 'orders' is a fact table where all other tables are dimensional and sub-dimensional. 
--- First, we must create the data set in the BigQuery project and upload all the tables.
+-- brands
+SELECT * 
+FROM bike-store-sql-project.1.brands;
 
--- Now lets first explore all the tables.
+-- categories
+SELECT * 
+FROM bike-store-sql-project.1.categories;
 
--- How many distinct products does the company sell?
+-- customers
+SELECT * 
+FROM bike-store-sql-project.1.customers
+LIMIT 5;
 
+-- order_items
+SELECT *
+FROM bike-store-sql-project.1.order_items
+LIMIT 5;
+
+-- orders
+SELECT *
+FROM bike-store-sql-project.1.orders
+LIMIT 5;
+
+-- products
+SELECT *
+FROM bike-store-sql-project.1.products
+LIMIT 5;
+
+-- staff
+SELECT *
+FROM bike-store-sql-project.1.staffs
+LIMIT 5;
+
+-- stocks
+SELECT *
+FROM bike-store-sql-project.1.stocks
+ORDER BY quantity DESC
+LIMIT 5;
+
+-- stores
+SELECT *
+FROM bike-store-sql-project.1.stores
+LIMIT 5;
+
+
+-- Now lets have a look at how many distinct products does company has sold?
 SELECT COUNT(DISTINCT product_name)
 FROM bike-store-sql-project.1.products AS products;
 
--- 
 
-
--- Which are the top 10 highest-sold products?
-
+-- Which are the top 10 highest sold product and number of quantities sold per product?
 WITH order_products AS (
 SELECT *
 FROM bike-store-sql-project.1.orders AS o
@@ -30,7 +64,7 @@ JOIN bike-store-sql-project.1.products AS p
  LIMIT 10;
 
 
- -- How many total products were sold by each brand? Which is the leading brand among?
+ -- Lets have a look, How many total products were sold by each brand? Which is Highest sellling brand by Volume?
 
 WITH brand_orders AS (
 SELECT *
@@ -47,7 +81,8 @@ JOIN bike-store-sql-project.1.brands as b
  GROUP BY 1
  ORDER BY 2 DESC;
 
- -- How many products were sold in each store?
+
+ -- Now lets explore products sold across the stores.
  WITH store_sale AS (
 SELECT *
 FROM bike-store-sql-project.1.orders AS o
@@ -62,9 +97,9 @@ JOIN bike-store-sql-project.1.products AS p
  FROM store_sale AS sts
  GROUP BY 1
  ORDER BY 2 DESC;
- 
- -- Which month of the year was the highest sold month?
 
+ 
+ -- Which month of year was highest sold month?
  WITH order_products AS (
 SELECT *
 FROM bike-store-sql-project.1.orders AS o
@@ -77,8 +112,7 @@ GROUP BY 1
 ORDER BY 3 DESC;
 
 
--- Who is the best performer and which store it belongs to?
-
+-- Who is the best performer across stores? Belongs to which store? and what is the total sale made by volume as well as value?
 WITH staff_orders AS (
 SELECT *
 FROM bike-store-sql-project.1.orders AS o
