@@ -1,18 +1,26 @@
-# Bike Store Sales Analysis Using BigQuery
+# Sales Report - Bike Store
 
-### - We have been assigned to analyse the bike store sales using BigQuery.
-### -  We have 9 relational tables having distinct primary keys and foreign keys. 
+## Objective - 
+### Optimize sales data analysis through enhanced database efficiency and streamlined SQL queries in BigQuery for improved decision-making and strategic planning. 
+
+## Dataset details
+### - Dataset comprises nine relational tables, featuring unique primary and foreign keys for intricate data relationships.
+### - The 'orders' table functions as the central fact table, while all other tables serve as dimensional and sub-dimensional components in the dataset schema.
+#### Refer to the following image:
 
 <img src="Bike_Store_Results/Bike_store_schema_1.png" width="600"/>
 
-### Among the tables, 'orders' is a fact table and all other tables are dimensional and sub-dimensional. 
+## Steps to upload data set in BigQuery
 
-### First, we must create the dataset in the BigQuery project and upload all the tables.
-### Refer to the following image,
+### Create the dataset in BigQuery.
+### Upload all tables systematically, ensuring accurate configuration.
+### Use designated tools for a smooth and precise upload process.
+### Monitor each table upload carefully, following guidelines for data consistency and accuracy.
+#### Refer to the following image,
 
 <img src="Bike_Store_Results/Bike_store_BigQuery_Preview.png" width="700"/>
 
-### Now let's first explore all the tables.
+## Table details
 
 -- brands
 <pre>
@@ -99,7 +107,7 @@ LIMIT 5;
 <img src="Bike_Store_Results/stores.png" width="600"/>
 
 
-### Now let's have a look at how many distinct products does company has sold.
+## How many distinct products do the company has sold?
 <pre>
 SELECT 
  COUNT(DISTINCT product_name)
@@ -110,7 +118,7 @@ FROM
 <img src="Bike_Store_Results/Q1.png" width="200"/>
 
 
-### Which are the top 10 highest sold products and number of quantities sold per product?
+## Which are the top 10 highest sold products and number of quantities sold per product?
 <pre>
 WITH order_products AS (
  SELECT *
@@ -139,7 +147,7 @@ JOIN
 <img src="Bike_Store_Results/Q2.png" width="400"/>
 
  
-### Let's have a look, How many total products were sold by each brand? Which is the Highest-selling brand by Volume? and its share?
+## How many total products were sold by each brand? Which is the Highest-selling brand by Volume? and its share?
 <pre>
 WITH brand_orders AS (
  SELECT *
@@ -170,7 +178,7 @@ WITH brand_orders AS (
 
 
  
-### Which month of the year was the highest sold month? What is a share over total both by volume and value?
+## What is the sale over the months of the year? What is a share over total both by volume and value?
  <pre>
 WITH order_products AS 
  (
@@ -195,7 +203,7 @@ WITH order_products AS
 <img src="Bike_Store_Results/Q5.2.png" width="600"/>
 
 
-### Let's have a look at the Quarter level, What is the sale both by value and volume each quarter and its share over the year?
+### What is the sale both by value and volume each quarter and its share over the year?
 <pre>
 WITH order_products AS (
  SELECT *
@@ -227,7 +235,7 @@ ORDER BY 2 DESC;
 <img src="Bike_Store_Results/Q5.3.png" width="700"/>
 
 
-### Now let's explore products sold across the stores.
+## How many products were sold across the stores?
 <pre>
  WITH store_sale AS 
  (
@@ -259,7 +267,7 @@ ORDER BY 2 DESC;
  <img src="Bike_Store_Results/Q4.png" width="500"/>
 
 
-### Who is the best performer across stores? Belongs to which store? and what is the total sale made by volume as well as value?
+## Who is the best performer across stores? Belongs to which store? and what is the total sale made by volume as well as value?
 <pre>
 WITH staff_orders AS 
 (
