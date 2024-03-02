@@ -292,9 +292,8 @@ ORDER BY 4 DESC;
 
 
 ## Conclusions
-### 1. 'Electra' is the highest sold brand by volume with each product having over 180 quantities sold.
-### 2. 'Electra' also holds the highest share by volume at 37% followed by 'Trek' at 26% and Surly at 13%.
-### 3. 'April' has been the highest-selling month of the year with a share of both volume and value standing around 15%, followed by 'March' at 11%.
-### 4. 'Q1' Stands to be the highest sales quarter with a share of the total of around 31% both by volume and value, followed by Q2 at around 28%. Whereas Q3 and Q4 both stand at 20%.
-### 5. 'Baldwin Bikes' store is the highest-selling store, having sales of more than twice that of the other two stores put together.
-### 6. 'Marcelene Boyer' and 'Venita Daniel' are the best-performing employees with the highest sales. both belong to the 'Baldwin Bikes' store.
+### 1. 'Electra' is the highest sold brand by volume with each product having over 180 quantities sold and also holds the highest share by volume at 37% followed by 'Trek' at 26% and Surly at 13%.
+### 2. 'April' has been the highest-selling month of the year with a share of both volume and value standing around 15%, followed by 'March' at 11%.
+### 3. 'Q1' Stands to be the highest sales quarter with a share of the total of around 31% both by volume and value, followed by Q2 at around 28%. Whereas Q3 and Q4 both stand at 20%.
+### 4. 'Baldwin Bikes' store is the highest-selling store, having sales of more than twice that of the other two stores put together.
+### 5. 'Marcelene Boyer' and 'Venita Daniel' are the best-performing employees with the highest sales. both belong to the 'Baldwin Bikes' store.
