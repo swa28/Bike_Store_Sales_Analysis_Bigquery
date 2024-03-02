@@ -1,4 +1,4 @@
-# Sales Analysis Using BigQuery
+# Bike Store Sales Analysis Using BigQuery
 
 ### - We have been assigned to analyse the bike store sales using BigQuery.
 ### -  We have 9 relational tables having distinct primary keys and foreign keys. 
